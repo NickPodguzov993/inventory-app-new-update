@@ -1,3 +1,5 @@
+import tailwindcss_animated from "tailwindcss-animated";
+
 /** @type {import('tailwindcss').Config} */
 export default {
     content: ["./index.html",
@@ -24,32 +26,8 @@ export default {
                 'key-slide-down-text': 'key-slide-down-text 0.3s ease-in-out',
                 'link-hover': 'link-hover 0.3s ease-in-out',
                 'mobile_cube_zoom': 'mobile_cube_zoom 0.9s ease-in-out',
-                'hover_joke': 'joke 5s linear infinite'
             },
             keyframes: {
-                'joke': {
-                    '0%': {transform: 'translateY(200px) translateX(-200px) rotate(0deg)', scale: 100},
-                    '5%': {transform: 'translateY(145px) translateX(200px) rotate(180deg)', scale: 95},
-                    '10%': {transform: 'translateY(-265px) translateX(-300px) rotate(360deg)', scale: 90},
-                    '15%': {transform: 'translateY(325px) translateX(100px) rotate(180deg)', scale: 85},
-                    '20%': {transform: 'translateY(-225px) translateX(-365px) rotate(0deg)', scale: 80},
-                    '25%': {transform: 'translateY(225px) translateX(225px) rotate(180deg)', scale: 75},
-                    '30%': {transform: 'translateY(-425px) translateX(-325px) rotate(360deg)', scale: 70},
-                    '35%': {transform: 'translateY(325px) translateX(325px) rotate(180deg)', scale: 65},
-                    '40%': {transform: 'translateY(-225px) translateX(-225px) rotate(0deg)', scale: 60},
-                    '45%': {transform: 'translateY(325px) translateX(425px) rotate(180deg)', scale: 55},
-                    '50%': {transform: 'translateY(-425px) translateX(-425px) rotate(360deg)', scale: 50},
-                    '55%': {transform: 'translateY(425px) translateX(225px) rotate(180deg)', scale: 45},
-                    '60%': {transform: 'translateY(-225px) translateX(-325px) rotate(0deg)', scale: 40},
-                    '65%': {transform: 'translateY(325px) translateX(225px) rotate(180deg)', scale: 35},
-                    '70%': {transform: 'translateY(-225px) translateX(-225px) rotate(360deg)', scale: 30},
-                    '75%': {transform: 'translateY(425px) translateX(425px) rotate(180deg)', scale: 25},
-                    '80%': {transform: 'translateY(-430px) translateX(-330px) rotate(0deg)', scale: 20},
-                    '85%': {transform: 'translateY(260px) translateX(260px) rotate(180deg)', scale: 15},
-                    '90%': {transform: 'translateY(-370px) translateX(-170px) rotate(360deg)', scale: 10},
-                    '95%': {transform: 'translateY(200px) translateX(200px) rotate(180deg)', scale: 5, opacity: 1},
-                    '100%': {transform: 'translateY(0px) translateX(0px) rotate(1800deg)', scale: 0, opacity: 0},
-                },
                 'mobile_cube_zoom': {
                     '0%': {transform: 'rotate(0)', scale: 0},
                     '100%': {transform: 'rotate(360deg)', scale: 100}
@@ -129,12 +107,15 @@ export default {
             colors: {
                 light_blue: "#44699F",
                 dark_blue: "#0E2146",
-                bg: "#D9E6F9"
+                bg: "#D9E6F9",
+                black: "#444345",
+                active_black: "#212121",
+                gray: "#EEEBEA",
             }
         },
     },
     plugins: [
-        require('tailwindcss-animated')
+        tailwindcss_animated
     ],
 }
 
