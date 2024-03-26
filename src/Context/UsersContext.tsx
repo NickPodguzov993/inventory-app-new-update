@@ -1,70 +1,25 @@
-import {Route, Routes} from "react-router-dom";
-import Wrapper from "./components/Wrapper";
-import Header from "./Layout/Header/Header.tsx";
-import NavBar from "./Layout/NavBar/NavBar.tsx";
-import UsersPage from "./Pages/UsersPage/UsersPage.tsx";
-import {v1} from 'uuid';
-import {UserContextProvider} from "./Context/UsersContext.tsx";
-import {EquipmentsContextProvider} from "./Context/EquipmentsContext.tsx";
-import EquipmentsPage from "./Pages/EquipmentsPage/EquipmentsPage.tsx";
+import React, {createContext} from "react";
+import {v1} from "uuid";
+import {UsersType} from "../App.tsx";
 
-
-export type EquipmentType = {
-    id: string,
-    title: string,
-    status: "Закреплeно" | "Резерв" | "Требует ремонта" | "Списано" | "В другом офисе",
-    type: "Ноутбуки" | "Аксессуары" | "Мониторы" | "Принтеры" | "Системный блок",
-    owner?: UsersType | null,
-    history?: {date: string, status: string, owner: string | null}[]
+interface childrenProps {
+    children: React.ReactNode
 }
 
-export type UsersType = {
-    id: string, email: string, name: string, isWorking: boolean, department: string, equipment?: EquipmentType[]
-    // допилить возможность отсутсвия техники у юзера
-}
+// Создаем объект контекста
+const UserContext = createContext<UsersType[]>([]);
 
-function App() {
-
-    const mockEquipments: EquipmentType[] = [
-        {id: v1(), title: "Наушники JBL", status: "Закреплeно", type: "Ноутбуки",
-            owner: {id: v1(), name: "Станислав", isWorking: true, department: "IT-пацаны",email: "info@fintech.com",}},
-        {id: v1(), title: "Ноутбук F+", status: "Резерв", type: "Аксессуары",
-            owner: {id: v1(), name: "Станислав", isWorking: true, department: "IT-пацаны",email: "info@fintech.com",}},
-        {id: v1(), title: "Монитор MSI", status: "Требует ремонта", type: "Мониторы"},
-        {id: v1(), title: "Xerox", status: "Списано", type: "Принтеры"},
-        {id: v1(), title: "МакБук", status: "В другом офисе", type: "Ноутбуки"},
-        {id: v1(), title: "Наушники JBL", status: "Закреплeно", type: "Ноутбуки"},
-        {id: v1(), title: "Ноутбук F+", status: "Резерв", type: "Аксессуары"},
-        {id: v1(), title: "Монитор MSI", status: "Требует ремонта", type: "Мониторы",
-            owner: {id: v1(), name: "Станислав", isWorking: true, department: "IT-пацаны",email: "info@fintech.com",}},
-        {id: v1(), title: "Xerox", status: "Списано", type: "Принтеры"},
-        {id: v1(), title: "МакБук", status: "В другом офисе", type: "Ноутбуки"},
-        {id: v1(), title: "Наушники JBL", status: "Закреплeно", type: "Ноутбуки"},
-        {id: v1(), title: "Ноутбук F+", status: "Резерв", type: "Аксессуары"},
-        {id: v1(), title: "Монитор MSI", status: "Требует ремонта", type: "Мониторы"},
-        {id: v1(), title: "Xerox", status: "Списано", type: "Принтеры"},
-        {id: v1(), title: "МакБук", status: "В другом офисе", type: "Ноутбуки"},
-        {id: v1(), title: "Наушники JBL", status: "Закреплeно", type: "Ноутбуки"},
-        {id: v1(), title: "Ноутбук F+", status: "Резерв", type: "Аксессуары"},
-        {id: v1(), title: "Монитор MSI", status: "Требует ремонта", type: "Мониторы"},
-        {id: v1(), title: "Xerox", status: "Списано", type: "Принтеры"},
-        {id: v1(), title: "МакБук", status: "В другом офисе", type: "Ноутбуки"},
-        {id: v1(), title: "Наушники JBL", status: "Закреплeно", type: "Ноутбуки"},
-        {id: v1(), title: "Ноутбук F+", status: "Резерв", type: "Аксессуары"},
-        {id: v1(), title: "Монитор MSI", status: "Требует ремонта", type: "Мониторы"},
-        {id: v1(), title: "Xerox", status: "Списано", type: "Принтеры"},
-        {id: v1(), title: "МакБук", status: "В другом офисе", type: "Ноутбуки"},
-        {id: v1(), title: "Наушники JBL", status: "Закреплeно", type: "Ноутбуки"},
-        {id: v1(), title: "Ноутбук F+", status: "Резерв", type: "Аксессуары"},
-        {id: v1(), title: "Монитор MSI", status: "Требует ремонта", type: "Мониторы"},
-        {id: v1(), title: "Xerox", status: "Списано", type: "Принтеры"},
-        {id: v1(), title: "МакБук", status: "В другом офисе", type: "Ноутбуки"},
-    ]
+// Используем провайдер для передачи значения контекста дочерним компонентам
+const UserContextProvider = ({children}: childrenProps) => {
+    // Ваш код для определения массива, который будет передан через контекст
     const mockUsers: UsersType[] = [
         {
-            id: v1(), name: "Станислав", isWorking: true, department: "IT-пацаны",
-            equipment: [{id: v1(), title: "Монитор MSI", status: "Закреплeно", type: "Мониторы"},
-                {id: v1(), title: "Монитор MSI", status: "Закреплeно", type: "Мониторы"},],
+            id: v1(), name: "Станислав",
+            isWorking: true,
+            department: "IT-пацаны", equipment: [
+                {id: v1(), title: "Монитор MSI", status: "Закреплeно", type: "Мониторы"},
+                {id: v1(), title: "Монитор MSI", status: "Закреплeно", type: "Ноутбуки"},
+                {id: v1(), title: "Xerox", status: "Закреплeно", type: "Принтеры"}],
             email: "info@fintech.com",
         },
         {
@@ -109,7 +64,7 @@ function App() {
             id: v1(),
             name: "Никита 1С",
             isWorking: true,
-            department: "Бухгалтерия",
+            department: "IT-пацаны",
             equipment: [{id: v1(), title: "Монитор MSI", status: "Закреплeно", type: "Мониторы"},
                 {id: v1(), title: "Монитор MSI", status: "Закреплeно", type: "Ноутбуки"},
                 {id: v1(), title: "Монитор MSI", status: "Закреплeно", type: "Принтеры"}],
@@ -187,26 +142,7 @@ function App() {
             email: "info@fintech.com"
         }
     ];
+    return <UserContext.Provider value={mockUsers}>{children}</UserContext.Provider>;
+};
 
-
-    return (
-        <EquipmentsContextProvider>
-            <UserContextProvider>
-                <Wrapper>
-                    <Header/>
-                    <div className="fr w-full">
-                        <NavBar/>
-                        <Routes>
-                            <Route path={'/equipment'} element={<EquipmentsPage/>}/>
-                            <Route path={'/users'}
-                                   element={<UsersPage mockEquipments={mockEquipments} mockUsers={mockUsers}/>}/>
-                        </Routes>
-                    </div>
-                </Wrapper>
-            </UserContextProvider>
-        </EquipmentsContextProvider>
-    )
-}
-
-export default App
-
+export {UserContext, UserContextProvider};

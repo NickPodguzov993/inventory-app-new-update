@@ -111,6 +111,12 @@ export default {
                 black: "#444345",
                 active_black: "#212121",
                 gray: "#EEEBEA",
+                secured: "#FFA500",
+                writtenOff: "#FF1744",
+                needRepair: "#00FFF9",
+                reserve: "#76FF03",
+                anotherOffice: "#4900FF"
+
             }
         },
     },

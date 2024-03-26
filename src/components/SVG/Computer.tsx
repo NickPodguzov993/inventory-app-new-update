@@ -1,7 +1,7 @@
-const Computer = (fill : any) => {
+const Computer = () => {
     return (
-        <svg className="hover:fill-active_black duration-500"
-            width="16" height="15" viewBox="0 0 16 15" fill={fill} xmlns="http://www.w3.org/2000/svg">
+        <svg
+            width="16" height="15" viewBox="0 0 16 15" fill="current" xmlns="http://www.w3.org/2000/svg">
             <g id="Group">
                 <path id="Vector"
                       d="M13.1666 0.166672H2.83331C1.72874 0.166672 0.833313 1.0621 0.833313 2.16667V9.16667C0.833313 10.2712 1.72874 11.1667 2.83331 11.1667H13.1666C14.2712 11.1667 15.1666 10.2712 15.1666 9.16667V2.16667C15.1666 1.0621 14.2712 0.166672 13.1666 0.166672Z"

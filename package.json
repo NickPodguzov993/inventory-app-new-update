@@ -16,6 +16,7 @@
     "@types/nodemailer": "^6.4.14",
     "@types/react-router-dom": "^5.3.3",
     "@types/react-scroll": "^1.8.10",
+    "@types/uuid": "^9.0.8",
     "aos": "^2.3.4",
     "flickity": "^2.3.0",
     "nodemailer": "^6.9.9",
@@ -24,7 +25,8 @@
     "react-flickity-component": "^4.0.7",
     "react-router-dom": "^6.21.3",
     "react-scroll": "^1.9.0",
-    "sass": "^1.70.0"
+    "sass": "^1.70.0",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/express": "^4.17.21",

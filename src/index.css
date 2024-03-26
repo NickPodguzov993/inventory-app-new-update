@@ -9,32 +9,105 @@
 .fr {
     @apply flex flex-row
 }
+
 .black_button {
     @apply text-white text-base font-bold bg-zinc-700 w-full h-12 rounded-[100px]
 }
+
 .header {
-    @apply w-full flex flex-row justify-between bg-white h-16 px-4 mt-[20px] mx-4 rounded-[100px]
+    @apply w-full flex flex-row justify-between bg-white h-16 px-4
 }
+
 .users_page {
     @apply w-full flex flex-col gap-8 justify-start items-start p-8
 }
+
 .equipment_card_title {
     @apply flex flex-row gap-8
 }
 
+.edit_input_label {
+    @apply text-neutral-400 text-xs font-medium font-['Roboto']
+}
+
+.edit_input {
+    @apply h-[46px] w-full px-6 py-4 bg-stone-50 rounded-[10px] border border-neutral-200 justify-start items-start gap-2.5 inline-flex
+}
+
 .nav_bar {
-    @apply flex flex-col bg-white rounded-[30px] shadow px-2 py-2 w-20 h-[304px] gap-2 justify-start items-center
+    @apply flex flex-col bg-white h-[100vh]  px-2 py-2 w-20 gap-2 justify-center items-center
+}
+
+.history_columns {
+    @apply text-[#263238] text-xs font-bold font-['Roboto']
+}
+
+.user_equipments {
+    @apply relative hover:bg-white duration-300 hover:border w-[181.33px] h-[99px] p-8 bg-sky-100 rounded-[20px] flex-col justify-center items-start gap-4 inline-flex
+}
+
+.user_equipments {
+    div {
+        @apply hidden
+    }
+}
+
+.user_equipments:hover {
+    div {
+        @apply absolute bg-neutral-800 rounded-[10px] bottom-0 right-0 w-10 h-10 flex justify-center items-center cursor-pointer
+    }
+}
+
+.show_details_block {
+    @apply self-stretch justify-center items-center hidden
+}
+
+.equipment_list_card {
+    @apply cursor-pointer w-[300px] h-60 p-8 bg-white rounded-[40px] shadow-xl flex-col justify-between items-start inline-flex
+}
+.equipment_list_card:hover {
+    .show_details_block {
+        @apply flex
+    }
+    .equipment_status_block {
+        @apply hidden
+    }
+}
+.equipment_status_block{
+    @apply h-[42px] justify-between items-center inline-flex w-full
+}
+.equipment_card_id {
+    @apply self-stretch flex-col justify-start items-start gap-4 flex text-zinc-600 text-sm font-medium font-['Roboto']
+}
+
+.equipment_list_title {
+    @apply self-stretch justify-start items-center gap-4 inline-flex text-neutral-800 text-sm font-bold font-['Roboto']
 }
 
 .nav_bar_link {
-    @apply flex duration-500 h-16 py-2 flex-col fill-black text-black hover:text-active_black justify-center items-center gap-2 text-[10px] hover:font-semibold font-normal font-['Roboto']
+    @apply flex duration-500 h-16 py-2 flex-col fill-black text-black hover:text-active_black justify-center
+    items-center gap-2 text-[10px] hover:font-semibold font-normal font-['Roboto'] hover:fill-active_black
 }
 
-/*.svg_bg {*/
-/*    @apply bg-gray h-9 px-4 py-0.5 rounded-[100px] flex items-center justify-center*/
-/*}*/
+.user_filter_container {
+    @apply flex flex-row gap-[6px] p-2  flex-wrap
+}
+
 .active {
     @apply text-active_black font-bold duration-500 fill-active_black
+}
+
+.department {
+    @apply w-auto text-zinc-700 px-4 h-7 rounded-[100px] border border-zinc-700 text-xs font-bold  flex justify-center items-center
+}
+
+.is_working {
+    @apply flex flex-row text-xs font-bold justify-center items-center gap-1 w-auto h-7 bg-white rounded-[100px] border border-[#EEEBEA] px-4 whitespace-nowrap
+}
+
+.user_filter_button {
+    @apply w-auto h-10 px-4 whitespace-nowrap border text-[#263238] hover:bg-zinc-700 focus:bg-zinc-700 hover:text-white duration-300 focus:text-white focus:shadow
+    text-xs font-bold rounded-[100px] hover:shadow justify-center items-center gap-2.5 inline-flex
 }
 
 .active {
@@ -48,9 +121,9 @@
     padding: 0;
     box-sizing: border-box;
 
-    /*::-webkit-scrollbar {*/
-    /*    width: 0;*/
-    /*}*/
+    ::-webkit-scrollbar {
+        width: 0;
+    }
 }
 
 body {
@@ -74,6 +147,8 @@ svg {
     display: flex;
     align-items: center;
 }
- h1 {
-     @apply text-neutral-800 text-5xl font-bold
- }
+
+h1 {
+    @apply text-neutral-800 text-5xl font-bold
+}
+

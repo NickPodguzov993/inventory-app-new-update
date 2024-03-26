@@ -4,7 +4,7 @@ import Bell from "../../components/SVG/Bell.tsx";
 
 const Header = () => {
     return (
-        <div className="w-full mx-auto">
+        <div className="w-full">
             <div className="header">
                 <div className="my-auto"><Logo/></div>
                 <div className="relative flex my-auto flex-row">
