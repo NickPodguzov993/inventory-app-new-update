@@ -4,9 +4,11 @@ import {useContext} from "react";
 import {UserContext} from "../../Context/UsersContext.tsx";
 
 type Props = {
-    close?: () => void
+    close?: () => void,
+    setFilter: (status: string) => void;
+
 }
-const UserStatusFilter = ({close} : Props) => {
+const UserStatusFilter = ({close, setFilter} : Props) => {
     const usersStatus = useContext(UserContext)
     function getUniqueDepartments(isWorking: UsersType[]): boolean[] {
         const uniqueDepartments: boolean[] = [];
@@ -18,14 +20,14 @@ const UserStatusFilter = ({close} : Props) => {
         return uniqueDepartments;
     }
 
-    const uniqueDepartments = getUniqueDepartments(usersStatus);
+    const uniqueDepartments = getUniqueDepartments(usersStatus)
 
     return (
         <div className="user_filter_container">
             {uniqueDepartments.map(u => (
                 <FilterButton
                     close={close}
-                    title={u ? "Работает" : "Не работает"}/>
+                    title={u ? "Работает" : "Не работает"} setFilter={setFilter}/>
             ))}
         </div>
     );

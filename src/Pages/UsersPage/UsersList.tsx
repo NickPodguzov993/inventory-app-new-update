@@ -1,26 +1,15 @@
 import {EquipmentType, UsersType} from "../../App.tsx";
 import UserCard from "../../components/Cards/UserCard.tsx";
-import {useContext, useState} from "react";
-import {UserContext} from "../../Context/UsersContext.tsx";
+import {useState} from "react";
 
 type Props = {
-    mockUsers: UsersType[]; mockEquipments: EquipmentType[];
+    filteredUsers: UsersType[]; mockEquipments: EquipmentType[];
 }
-const UsersList = ({mockUsers, mockEquipments}: Props) => {
+const UsersList = ({filteredUsers, mockEquipments}: Props) => {
     const [selectedUser, setSelectedUser] = useState<UsersType | null>(null);
-    const allUsers = useContext(UserContext)
-    const [users, setUserts] = useState<UsersType[]>(allUsers)
-
-    const filteredUsers = []
-    for (let i = 0; i < allUsers.length; i++)
-
-    // const setFilteredUsers = ({arr, string}) => {
-    //     return filteredUsers
-    // }
-
     return (
         <>
-            <div className="fr flex-wrap gap-8">{mockUsers.map(u => (
+            <div className="fr flex-wrap gap-8">{filteredUsers.map(u => (
                 // тут должны принимать массив уже отфильтрованных юзеров
                 <div onClick={() => setSelectedUser(u)} key={u.id}
                      className="cursor-pointer w-[296px] bg-white rounded-[40px] p-8 fc justify-between h-[200px]">

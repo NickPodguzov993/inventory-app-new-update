@@ -1,4 +1,3 @@
-
 import {EquipmentType, UsersType} from "../../App.tsx";
 import Copy from "../SVG/Copy.tsx";
 import EquipmentCard from "./EquipmentCard.tsx";
@@ -33,12 +32,14 @@ const UserCard = ({closeCard, user, mockEquipments}: Props) => {
                     <div className="flex flex-row gap-8 w-[576px] h-40">
                         <Profile/>
                         <div className="flex flex-col justify-between">
-                            <div className="flex flex-row justify-between w-96">`
+                            <div className="flex flex-row justify-between w-96">
                                 <div
-                                    className="text-[#263238] ext-base font-medium font-['Roboto Condensed'] flex flex-row gap-[2px] items-center">{user.id}<Copy/>
+                                    className="text-[#263238] text-base font-medium font-['Roboto Condensed'] flex flex-row gap-[2px] items-center">
+                                    <div className="w-[160px]">{user.id}</div>
+                                    <Copy/>
                                 </div>
                                 <div
-                                    className="text-[#263238] ext-base font-medium font-['Roboto Condensed'] flex flex-row gap-[2px] items-center">{user.email}<Copy/>
+                                    className="text-[#263238] text-base font-medium font-['Roboto Condensed'] flex flex-row gap-[2px] items-center">{user.email}<Copy/>
                                 </div>
                             </div>
                             <div className="text-[#212121] text-[32px] font-bold font-['Roboto']">{user.name}</div>

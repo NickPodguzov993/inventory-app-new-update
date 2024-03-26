@@ -1,15 +1,18 @@
 type FilterButtonType = {
-    title?: string | boolean,
-    close?: () => void
+    title: string,
+    close?: () => void,
+    setFilter: (department: string) => void;
+    isActive?: boolean
 }
 
-const FilterButton = ({title, close}: FilterButtonType) => {
+const FilterButton = ({title, setFilter}: FilterButtonType) => {
+
     return (
-        <button onClick={close}
+        <button onClick={() => setFilter(title)}
+                // style={isActive? {backgroundColor: "green"} : {backgroundColor: "red"}}
             className="user_filter_button">
             {title}
         </button>
     );
 };
-
 export default FilterButton;
