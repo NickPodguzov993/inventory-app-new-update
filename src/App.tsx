@@ -198,7 +198,7 @@ function App() {
                         <NavBar/>
                         <Routes>
                             <Route path={'/equipment'} element={<EquipmentsPage/>}/>
-                            <Route path={'/users'}
+                            <Route path={'/'}
                                    element={<UsersPage mockEquipments={mockEquipments} mockUsers={mockUsers}/>}/>
                         </Routes>
                     </div>

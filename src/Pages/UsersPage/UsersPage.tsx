@@ -17,6 +17,8 @@ type Props = {
 const UsersPage = ({mockEquipments}: Props) => {
     const allUsers = useContext(UserContext) //получили весь массив пользователей
     const [users, setUsers] = useState<UsersType[]>(allUsers)
+
+
     const handleSetFilterDepartment = (department: string) => {
         if (department === "Все") {
             setUsers(allUsers)

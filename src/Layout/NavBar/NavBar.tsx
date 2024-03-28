@@ -7,7 +7,7 @@ const NavBar = () => {
 
     const links = [
         {id: 1, title: "Заявки", href: "/applications", svg: mail},
-        {id: 3, title: "Сотрудники", href: "/users", svg: profile},
+        {id: 3, title: "Сотрудники", href: "/", svg: profile},
         {id: 4, title: "Техника", href: "/equipment", svg: computer}
     ]
 

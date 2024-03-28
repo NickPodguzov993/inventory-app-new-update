@@ -6,7 +6,8 @@ import {useContext} from "react";
 import {EquipmentsContext} from "../../Context/EquipmentsContext.tsx";
 
 type Props = {
-    close?: () => void
+    close?: () => void,
+
 }
 const EquipmentFilterType = ({close}: Props) => {
 
@@ -25,9 +26,9 @@ const EquipmentFilterType = ({close}: Props) => {
 
     return (
         <div className="user_filter_container">
-            <FilterButton close={close} title={"Все"}/>
+            <FilterButton setFilter={() => alert("1")} close={close} title={"Все"}/>
             {uniqueEquipments.map((u, index) => (
-                <FilterButton close={close} key={index} title={u}/>
+                <FilterButton setFilter={() => alert("1")} close={close} key={index} title={u}/>
                 // нужно кей нормальный присобачить.
             ))}
         </div>

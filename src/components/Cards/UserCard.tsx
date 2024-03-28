@@ -57,7 +57,7 @@ const UserCard = ({closeCard, user, mockEquipments}: Props) => {
                         <div>
                             <div className="text-gray-800 text-xl font-bold font-['Roboto']">Техника</div>
                             <div>
-                                <EquipmentFilterType equipment={user.equipment}/>
+                                <EquipmentFilterType/>
                             </div>
                         </div>
                         <div className="flex flex-col gap-2">
