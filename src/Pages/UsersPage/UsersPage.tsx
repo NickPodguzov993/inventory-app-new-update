@@ -1,5 +1,6 @@
 // Главная страница пользователей
 // нужно добавить фильтрацию юзеров по кнопкам в компон
+// День, когда разработка разделилась на до и после
 
 import UserFilter from "../../components/Filters/UserFilter.tsx";
 import {EquipmentType, UsersType} from "../../App.tsx";
