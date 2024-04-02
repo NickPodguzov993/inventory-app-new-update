@@ -14,7 +14,6 @@ import UserStatusSelectionCard from "../Cards/UserStatusSelectionCard.tsx";
 type PropsType = {
     close: () => void,
     user: UsersType,
-    mockEquipments: EquipmentType[];
 
 }
 const EditingUserMenu = ({user, close}: PropsType) => {
@@ -105,16 +104,16 @@ const EditingUserMenu = ({user, close}: PropsType) => {
                             </div>
 
                         </div>
-                        {user.equipment.map(e => (
-                            <div
-                                className="user_equipments"
-                                key={e.id}>
-                                <span className="text-neutral-800 text-xs font-medium font-['Roboto']">{e.title}</span>
-                                <span
-                                    className="text-blue-600 text-xs font-medium font-['Roboto Condensed']">{e.id}</span>
-                                <div><DeleteEquipment/></div>
-                            </div>
-                        ))}
+                        {/*{user.equipment.map(e => (*/}
+                        {/*    <div*/}
+                        {/*        className="user_equipments"*/}
+                        {/*        key={e.id}>*/}
+                        {/*        <span className="text-neutral-800 text-xs font-medium font-['Roboto']">{e.title}</span>*/}
+                        {/*        <span*/}
+                        {/*            className="text-blue-600 text-xs font-medium font-['Roboto Condensed']">{e.id}</span>*/}
+                        {/*        <div><DeleteEquipment/></div>*/}
+                        {/*    </div>*/}
+                        {/*))}*/}
                     </div>
                 </div>
                 <div className="flex flex-row w-full gap-2"><EditButton title={"Сохранить"}/><CancelButton

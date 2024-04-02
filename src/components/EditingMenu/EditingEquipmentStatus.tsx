@@ -3,17 +3,18 @@
 import {useContext} from "react";
 import {EquipmentsContext} from "../../Context/EquipmentsContext.tsx";
 import EquipmentChoiceTypeButton from "../Buttons/EquipmentChoiceTypeButton.tsx";
-import {EquipmentType} from "../../App.tsx";
+import {EqiupmentStatusType, EqiupmentTypesType, EquipmentType} from "../../App.tsx";
 
 type Props = {
-    close?: () => void,
-    title?: string
+    title: string
+    equipStatus: EqiupmentTypesType | EqiupmentStatusType
+    handleChangeEquipStatus: (status: EqiupmentStatusType) => void
 }
-const EditingEquipmentStatus = ({title}: Props) => {
+const EditingEquipmentStatus = ({title, handleChangeEquipStatus, equipStatus}: Props) => {
     const allEquipments = useContext(EquipmentsContext)
 
     function getUniqueEquipments(allEquipments: EquipmentType[]): string[] {
-        const uniqueEquipments: string[] = [];
+        const uniqueEquipments: EqiupmentStatusType[] = [];
         allEquipments.forEach((d) => {
             if (!uniqueEquipments.includes(d.status)) {
                 uniqueEquipments.push(d.status);
@@ -29,8 +30,10 @@ const EditingEquipmentStatus = ({title}: Props) => {
             <div className="text-gray-800 text-2xl font-bold font-['Roboto']">{title}</div>
             <div className="user_filter_container">
                 {uniqueEquipments.map((u, index) => (
-                    <EquipmentChoiceTypeButton key={index} title={u}/>
-                    // нужно кей нормальный присобачить.
+                    <EquipmentChoiceTypeButton equipTitle={equipStatus}
+                                               key={index}
+                                               title={u}
+                                               handleChange={handleChangeEquipStatus}/>
                 ))}
             </div>
         </div>

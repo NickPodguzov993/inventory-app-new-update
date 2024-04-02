@@ -3,14 +3,18 @@ import {EquipmentType} from "../../App.tsx";
 
 type PropsType = {
     equipment: EquipmentType
+    equipTitle: string
+    onChange: (title: string) => void
+    note: string | null
+    changeNote: (note: string) => void
 }
-const EditingEquipmentMenuTitle = ({equipment} : PropsType) => {
+const EditingEquipmentMenuTitle = ({equipTitle, onChange, note, changeNote} : PropsType) => {
     return (
         <div className="flex flex-row gap-8 w-full">
             <img src="https://via.placeholder.com/160x160" alt="QR-code"/>
             <div className="justify-between fc w-full">
-                <EditInput item={equipment.title} label={"Название оборудования"}/>
-                <EditInput item={equipment.id} label={"ID"}/>
+                <EditInput onChange={onChange} item={equipTitle} label={"Название оборудования"} error={false}/>
+                <EditInput onChange={changeNote} item={note} label={"Заявка"}/>
             </div>
         </div>
     );

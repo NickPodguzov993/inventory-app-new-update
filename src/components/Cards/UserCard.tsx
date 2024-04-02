@@ -11,9 +11,8 @@ import Close from "../SVG/Close.tsx";
 type Props = {
     closeCard: () => void,
     user: UsersType,
-    mockEquipments: EquipmentType[];
 }
-const UserCard = ({closeCard, user, mockEquipments}: Props) => {
+const UserCard = ({closeCard, user, }: Props) => {
     const [openEditMenu, setOpenEditMenu] = useState<boolean>(false)
     const handleOpenEditMenu = () => {
         setOpenEditMenu(true)
@@ -25,7 +24,7 @@ const UserCard = ({closeCard, user, mockEquipments}: Props) => {
         <div
             className="fixed  w-full inset-0 flex flex-row items-start justify-start z-30 bg-black bg-opacity-40">
 
-            {openEditMenu ? <EditingUserMenu mockEquipments={mockEquipments} user={user} close={handleCloseMenu}/>
+            {openEditMenu ? <EditingUserMenu  user={user} close={handleCloseMenu}/>
                 : <div
                     className="flex flex-col relative sm:w-[640px] h-[900px] sm:h-full w-full left-0 py-8 px-4 sm:p-8 fc gap-8 bg-white sm:rounded-r-[40px]">
                     <Close close={closeCard}/>

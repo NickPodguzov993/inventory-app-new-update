@@ -22,6 +22,10 @@
     @apply w-full flex flex-col gap-8 justify-start items-start p-8
 }
 
+.equipments_page {
+    @apply w-full flex flex-col gap-8 justify-start items-start p-8
+}
+
 .equipment_card_title {
     @apply flex flex-row gap-8
 }
@@ -65,17 +69,21 @@
 .equipment_list_card {
     @apply cursor-pointer w-[300px] h-60 p-8 bg-white rounded-[40px] shadow-xl flex-col justify-between items-start inline-flex
 }
+
 .equipment_list_card:hover {
     .show_details_block {
         @apply flex
     }
+
     .equipment_status_block {
         @apply hidden
     }
 }
-.equipment_status_block{
+
+.equipment_status_block {
     @apply h-[42px] justify-between items-center inline-flex w-full
 }
+
 .equipment_card_id {
     @apply self-stretch flex-col justify-start items-start gap-4 flex text-zinc-600 text-sm font-medium font-['Roboto']
 }
@@ -105,9 +113,24 @@
     @apply flex flex-row text-xs font-bold justify-center items-center gap-1 w-auto h-7 bg-white rounded-[100px] border border-[#EEEBEA] px-4 whitespace-nowrap
 }
 
+.editing_type_button {
+    @apply h-12 px-4 rounded-[20px] focus:border-blue-600 border hover:border-blue-600 border-[#CFD8DC] duration-300 justify-center gap-2 inline-flex items-center
+}
+
+.active_editing_type_button {
+    @apply h-12 px-4 rounded-[20px] border border-blue-600 duration-300 justify-center gap-2 inline-flex items-center
+}
+.edit_input_label_error {
+    @apply text-rose-500 text-xs font-medium font-['Roboto']
+ }
 .user_filter_button {
-    @apply w-auto h-10 px-4 whitespace-nowrap border text-[#263238] hover:bg-zinc-700 focus:bg-zinc-700 hover:text-white duration-300 focus:text-white focus:shadow
+    @apply w-auto cursor-pointer h-10 px-4 whitespace-nowrap border text-[#263238] hover:bg-zinc-700 focus:bg-zinc-700 hover:text-white duration-300 focus:text-white focus:shadow
     text-xs font-bold rounded-[100px] hover:shadow justify-center items-center gap-2.5 inline-flex
+}
+
+.user_filter_button_active {
+    @apply w-auto h-10 px-4 cursor-pointer whitespace-nowrap border  bg-zinc-700 duration-300 text-white
+    text-xs font-bold rounded-[100px] shadow justify-center items-center gap-2.5 inline-flex
 }
 
 .active {

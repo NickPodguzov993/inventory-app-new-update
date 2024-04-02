@@ -6,7 +6,7 @@ type PropsType = {
 const EquipmentTitle = ({equipment}: PropsType) => {
     return (
         <div className="flex flex-row gap-[10px] items-center">
-            <h1>Оборудование</h1>
+            <h1>Техника</h1>
             <div
                 className="flex items-center justify-center text-base text-gray font-black w-9 h-7 px-4 bg-stone-300 rounded-[100px]">
                 {equipment.length}

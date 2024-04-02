@@ -9,7 +9,7 @@ const EditCard = ({title, children}: PropsType) => {
         <div className="flex flex-col">
             <div className="text-gray-800 text-2xl font-bold font-['Roboto']">{title}</div>
             <div
-                className="w-[360px] h-full rounded-[40px] p-8 bg-white  shadow flex-col items-start justify-between inline-flex">
+                className="w-[360px] h-full rounded-[40px] gap-4 p-8 bg-white  shadow flex-col items-start justify-between inline-flex">
                 {title}
                 {children}
             </div>

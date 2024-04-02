@@ -1,9 +1,15 @@
 // кнопка с инпутом для выбора категории оборудования
 
+
+
+import {EqiupmentStatusType, EqiupmentTypesType} from "../../App.tsx";
+
 type PropsType = {
-    title: string
+    title: EqiupmentTypesType | EqiupmentStatusType
+    handleChange:  (type: EqiupmentTypesType | EqiupmentStatusType) => void
+    equipTitle: EqiupmentTypesType | EqiupmentStatusType
 }
-const EquipmentChoiceTypeButton = ({title}: PropsType) => {
+const EquipmentChoiceTypeButton = ({title, equipTitle, handleChange}: PropsType) => {
     let color = "";
     if (title === "Закреплeно") {
         color = "#FFA500";
@@ -16,12 +22,20 @@ const EquipmentChoiceTypeButton = ({title}: PropsType) => {
     } else if (title === "В другом офисе") {
         color = "#4900FF";
     }
+    const handleChangeTitle = () => {
+        handleChange(title)
+    }
     return (
-        <div className="h-12 px-4 rounded-[20px] border hover:border-blue-600 border-[#CFD8DC] duration-300 justify-center gap-2 inline-flex items-center">
-            <input type="checkbox"/>
+        <button
+            onClick={handleChangeTitle}
+            className={title === equipTitle ? "active_editing_type_button"
+                : "editing_type_button"}>
+            <input type="checkbox" checked={title === equipTitle}/>
             <div className={"text-center text-gray-800 text-base font-bold font-['Roboto']"}>{title}</div>
-            <div className="w-4 h-4 rounded-[100px]" style={{backgroundColor: color}} />
-        </div>
+            <div className="w-4 h-4 rounded-[100px]"
+                style={{backgroundColor: color}}
+            />
+        </button>
     );
 };
 

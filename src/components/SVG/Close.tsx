@@ -4,7 +4,7 @@ type PropsType = {
 const Close = ({close}: PropsType) => {
     return (
         <div onClick={close}
-            className="cursor-pointer absolute right-[-61px] top-[15px] w-12 h-12 bg-white rounded-[100px] justify-center items-center gap-2.5 inline-flex">
+            className="cursor-pointer absolute right-[-61px] top-[15px] z-[2] w-12 h-12 bg-white rounded-[100px] justify-center items-center gap-2.5 inline-flex">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="Group">
                     <path id="Vector"

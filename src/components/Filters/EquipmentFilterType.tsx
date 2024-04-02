@@ -1,35 +1,18 @@
 // блок фильтрации оборудования на главной странице оборудования
-
-import {EquipmentType} from "../../App.tsx";
 import FilterButton from "../Buttons/FilterButton.tsx";
-import {useContext} from "react";
-import {EquipmentsContext} from "../../Context/EquipmentsContext.tsx";
 
 type Props = {
     close?: () => void,
-
+    typesFilters: string[],
+    setEquipmentListType: (type: string) => void
+    filterType: string;
 }
-const EquipmentFilterType = ({close}: Props) => {
-
-    const allEquipments = useContext(EquipmentsContext)
-    function getUniqueEquipments(allEquipments: EquipmentType[]): string[] {
-        const uniqueEquipments: string[] = [];
-        allEquipments.forEach(d => {
-            if (!uniqueEquipments.includes(d.type)) {
-                uniqueEquipments.push(d.type);
-            }
-        });
-        return uniqueEquipments;
-    }
-
-    const uniqueEquipments = getUniqueEquipments(allEquipments);
-
+const EquipmentFilterType = ({close, typesFilters, setEquipmentListType, filterType}: Props) => {
     return (
         <div className="user_filter_container">
-            <FilterButton setFilter={() => alert("1")} close={close} title={"Все"}/>
-            {uniqueEquipments.map((u, index) => (
-                <FilterButton setFilter={() => alert("1")} close={close} key={index} title={u}/>
-                // нужно кей нормальный присобачить.
+            {/*<FilterButton setFilter={setEquipmentListType} close={close} title={"Все"}/>*/}
+            {typesFilters.map((u, index) => (
+                <FilterButton setFilter={setEquipmentListType} close={close} key={index} title={u} filter={filterType}/>
             ))}
         </div>
     );

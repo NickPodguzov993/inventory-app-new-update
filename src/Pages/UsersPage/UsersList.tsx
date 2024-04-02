@@ -1,11 +1,11 @@
-import {EquipmentType, UsersType} from "../../App.tsx";
+import {UsersType} from "../../App.tsx";
 import UserCard from "../../components/Cards/UserCard.tsx";
 import {useState} from "react";
 
 type Props = {
-    filteredUsers: UsersType[]; mockEquipments: EquipmentType[];
+    filteredUsers: UsersType[];
 }
-const UsersList = ({filteredUsers, mockEquipments}: Props) => {
+const UsersList = ({filteredUsers}: Props) => {
     const [selectedUser, setSelectedUser] = useState<UsersType | null>(null);
     return (
         <>
@@ -22,7 +22,7 @@ const UsersList = ({filteredUsers, mockEquipments}: Props) => {
                     </div>
                 </div>
             ))}  </div>
-            {selectedUser ? <UserCard user={selectedUser} mockEquipments={mockEquipments}
+            {selectedUser ? <UserCard user={selectedUser}
                                       closeCard={() => setSelectedUser(null)}/> : null}
         </>
     );

@@ -1,7 +1,4 @@
-// список всего оборудования
-// нужно добавить реализацию фильтрации
-
-
+// список всего отфильтрованного оборцдования оборудования
 import {useState} from "react";
 import {EquipmentType} from "../../App.tsx";
 import ArrowToRight from "../../components/SVG/ArrowToRight.tsx";
@@ -11,13 +8,13 @@ import SelectedEquipmentCard from "../../components/Cards/SelectedEquipmentCard.
 
 type PropsType = {
     equipments: EquipmentType[];
+    saveEquipChanges: (equip: EquipmentType) => void;
 }
-const EquipmentList = ({equipments}: PropsType) => {
+const EquipmentList = ({equipments, saveEquipChanges}: PropsType) => {
     const [selectedEquipment, setSelectedEquipment] = useState<EquipmentType | null>(null);
-
     return (
-        <>
-            <div className="fr flex-wrap gap-4">{equipments.map(e => (
+        <div className="fr flex-wrap gap-4">
+            {equipments.map(e => (
                 <div
                     onClick={() => setSelectedEquipment(e)} key={e.id}
                     className="equipment_list_card">
@@ -43,11 +40,15 @@ const EquipmentList = ({equipments}: PropsType) => {
                         <EquipmentTypeCard type={e.type}/>
                     </div>
                 </div>
-            ))}  </div>
-            {selectedEquipment ? <SelectedEquipmentCard equipment={selectedEquipment}
-                                                        closeCard={() => setSelectedEquipment(null)}/> : null}
-        </>
+            ))}
+            {selectedEquipment ?
+                <SelectedEquipmentCard
+                    equipment={selectedEquipment}
+                    saveEquipChanges={saveEquipChanges}
+                    closeCard={() => setSelectedEquipment(null)}/> : null}
+        </div>
     );
 };
 
 export default EquipmentList;
+
