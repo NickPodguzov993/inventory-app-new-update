@@ -1,15 +1,22 @@
 // Контекст с массивом оборудования
 
-import React, {createContext} from "react";
+import {createContext, useState} from "react";
 import {v1} from "uuid";
-import {EquipmentType} from "../App.tsx";
+import {EquipmentType, UsersType} from "../App.tsx";
 
 interface childrenProps {
     children: React.ReactNode
 }
 
+export interface IContext {
+    initialValue: EquipmentType[];
+    currentUser: UsersType | null;
+    handleAddEquip?: (unknown) => void;
+    handleRemoveEquip:(unknown) => void;
+    setCurrentUser?: (unknown) => void;
+}
 // Создаем объект контекста
-const EquipmentsContext = createContext<EquipmentType[]>([]);
+const EquipmentsContext = createContext<IContext | null>(null);
 
 // Используем провайдер для передачи значения контекста дочерним компонентам
 const EquipmentsContextProvider = ({children}: childrenProps) => {
@@ -21,18 +28,18 @@ const EquipmentsContextProvider = ({children}: childrenProps) => {
                 status: "Списано",
                 type: "Аксессуары",
                 note: "Buy this shed for Designers",
-                ownerId: null,
+                ownerId: '',
                 history: [{
                     date: "11.11.2022",
                     status: "Закреплeно",
-                    ownerId: null,
+                    ownerId: '',
                     dataNote: "Today we buy this shed for Designers"
                 },
-                    {date: "03.05.2022", status: "Требует ремонта", ownerId: null, dataNote: "something сломалось"},
-                    {date: "05.08.2023", status: "Резерв", ownerId: null, dataNote: "something починили"},
-                    {date: "15.11.2023", status: "Закреплeно", ownerId: null, dataNote: "Передали новому Владельцу"},
-                    {date: "21.12.2023", status: "Закреплeно", ownerId: null, dataNote: "Сменили владельца"},
-                    {date: "01.04.2024", status: "Списано", ownerId: null, dataNote: "Отжила своё"},
+                    {date: "03.05.2022", status: "Требует ремонта", ownerId: '', dataNote: "something сломалось"},
+                    {date: "05.08.2023", status: "Резерв", ownerId: '', dataNote: "something починили"},
+                    {date: "15.11.2023", status: "Закреплeно", ownerId: '', dataNote: "Передали новому Владельцу"},
+                    {date: "21.12.2023", status: "Закреплeно", ownerId: '', dataNote: "Сменили владельца"},
+                    {date: "01.04.2024", status: "Списано", ownerId: '', dataNote: "Отжила своё"},
                 ]
             },
             {
@@ -40,7 +47,7 @@ const EquipmentsContextProvider = ({children}: childrenProps) => {
                 title: "Ноутбук F+",
                 status: "Закреплeно",
                 type: "Ноутбуки",
-                ownerId: null,
+                ownerId: '',
                 note: null,
                 history: null,
 
@@ -50,7 +57,7 @@ const EquipmentsContextProvider = ({children}: childrenProps) => {
                 title: "Монитор MSI",
                 status: "Требует ремонта",
                 type: "Мониторы",
-                ownerId: null,
+                ownerId: '',
                 note: null,
                 history: null
             },
@@ -61,7 +68,7 @@ const EquipmentsContextProvider = ({children}: childrenProps) => {
                 title: "Наушники JBL",
                 status: "Закреплeно",
                 type: "Аксессуары",
-                ownerId: null,
+                ownerId: '',
                 note: null,
                 history: null
             },
@@ -71,7 +78,7 @@ const EquipmentsContextProvider = ({children}: childrenProps) => {
                 title: "Монитор MSI",
                 status: "Закреплeно",
                 type: "Мониторы",
-                ownerId: null,
+                ownerId: '',
                 note: null,
                 history: null
 
@@ -83,7 +90,7 @@ const EquipmentsContextProvider = ({children}: childrenProps) => {
                 title: "Наушники JBL",
                 status: "Закреплeно",
                 type: "Аксессуары",
-                ownerId: null,
+                ownerId: '',
                 note: null,
                 history: null
             },
@@ -93,7 +100,7 @@ const EquipmentsContextProvider = ({children}: childrenProps) => {
                 title: "Принтер НР",
                 status: "Требует ремонта",
                 type: "Принтеры",
-                ownerId: null,
+                ownerId: '',
                 note: null,
                 history: null
             },
@@ -104,7 +111,7 @@ const EquipmentsContextProvider = ({children}: childrenProps) => {
                 title: "Наушники JBL",
                 status: "Закреплeно",
                 type: "Аксессуары",
-                ownerId: null,
+                ownerId:'',
                 note: null,
                 history: null
             },
@@ -114,7 +121,7 @@ const EquipmentsContextProvider = ({children}: childrenProps) => {
                 title: "Клавиатура механическая",
                 status: "Требует ремонта",
                 type: "Аксессуары",
-                ownerId: null,
+                ownerId:'',
                 note: null,
                 history: null
             },
@@ -125,7 +132,7 @@ const EquipmentsContextProvider = ({children}: childrenProps) => {
                 title: "Наушники JBL",
                 status: "Закреплeно",
                 type: "Ноутбуки",
-                ownerId: null,
+                ownerId: '',
                 note: null,
                 history: null
             },
@@ -135,7 +142,7 @@ const EquipmentsContextProvider = ({children}: childrenProps) => {
                 title: "Системный блок ПК-2",
                 status: "Требует ремонта",
                 type: "Мониторы",
-                ownerId: null,
+                ownerId: '',
                 note: null,
                 history: null
             },
@@ -146,7 +153,7 @@ const EquipmentsContextProvider = ({children}: childrenProps) => {
                 title: "Наушники MI",
                 status: "Закреплeно",
                 type: "Аксессуары",
-                ownerId: null,
+                ownerId: '',
                 note: null,
                 history: null
             },
@@ -159,7 +166,7 @@ const EquipmentsContextProvider = ({children}: childrenProps) => {
                 title: "Принтер LG",
                 status: "В другом офисе",
                 type: "Принтеры",
-                ownerId: null,
+                ownerId:'',
                 note: null,
                 history: null
             },
@@ -168,7 +175,7 @@ const EquipmentsContextProvider = ({children}: childrenProps) => {
                 title: "Наушники вакумные",
                 status: "В другом офисе",
                 type: "Аксессуары",
-                ownerId: null,
+                ownerId: '',
                 note: null,
                 history: null
             },
@@ -177,12 +184,39 @@ const EquipmentsContextProvider = ({children}: childrenProps) => {
                 title: "Наушники большие",
                 status: "Списано",
                 type: "Аксессуары",
-                ownerId: null,
+                ownerId: '',
                 note: null,
                 history: null
             },
         ]
-        return <EquipmentsContext.Provider value={mockEquipments}>{children}</EquipmentsContext.Provider>;
+
+    const [initialValue, setInitialValue] = useState<EquipmentType[]>(mockEquipments)
+    const [currentUser, setCurrentUser] = useState(null)
+
+    const handleAddEquip = (cards) => {
+        setInitialValue(initialValue.map(item => {
+            const card = cards.find(elem => elem.id === item.id)
+            if(card){
+                return {...item, ownerId: currentUser.id}
+            }
+            return item
+        }))
+    }
+
+    const handleRemoveEquip = () => {
+        // return initialValue.filter(f=>f.id !== id2)
+        console.log('12334')
+    }
+
+    return <EquipmentsContext.Provider value={{
+        initialValue: initialValue,
+        currentUser: currentUser,
+        handleAddEquip: handleAddEquip,
+        setCurrentUser: setCurrentUser,
+        handleRemoveEquip:handleRemoveEquip
+    }}
+
+    >{children}</EquipmentsContext.Provider>;
     }
 ;
 

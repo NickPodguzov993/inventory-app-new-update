@@ -2,7 +2,7 @@ import EquipmentFilterType from "../../components/Filters/EquipmentFilterType.ts
 import EquipmentsStatusFilter from "../../components/Filters/EquipmentsStatusFilter.tsx"
 import {EquipmentType} from "../../App.tsx";
 import {useContext} from "react";
-import {EquipmentsContext} from "../../Context/EquipmentsContext.tsx";
+import {EquipmentsContext, IContext} from "../../Context/EquipmentsContext.tsx";
 
 type PropsType = {
     setEquipmentListStatus: (status: string) => void
@@ -11,7 +11,7 @@ type PropsType = {
     filterStatus: string
 }
 const EquipmentsListFilters = ({setEquipmentListStatus, setEquipmentListType, filterType, filterStatus}: PropsType) => {
-    const allEquipments: EquipmentType[] = useContext(EquipmentsContext)
+    const {allEquipments} = useContext(EquipmentsContext) as IContext
     function getEquipmentsStatusFilters(allEquipments: EquipmentType[]): string[] {
         const equipmentsStatusFilters: string[] = [];
         allEquipments.forEach((d) => {

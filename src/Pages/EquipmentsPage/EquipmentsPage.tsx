@@ -1,5 +1,5 @@
-import {useContext, useState} from "react";
-import {EquipmentsContext} from "../../Context/EquipmentsContext.tsx";
+import  {useContext, useState} from "react";
+import {EquipmentsContext, IContext} from "../../Context/EquipmentsContext.tsx";
 import EquipmentTitle from "./EquipmentTitle.tsx";
 import EquipmentList from "./EquipmentList.tsx";
 import EquipmentsListFilters from "./EquipmentsListFilters.tsx";
@@ -7,14 +7,14 @@ import {EquipmentType} from "../../App.tsx";
 
 
 const EquipmentsPage = () => {
-    const allEquipments = useContext(EquipmentsContext)
-    const [equipList, setEquipList] = useState<EquipmentType[]>(allEquipments)
+    const {initialValue} = useContext(EquipmentsContext) as IContext
+    const [equipList, setEquipList] = useState<EquipmentType[]>(initialValue)
     const [filteredEquipmentList, setFilteredEquipmentList] = useState<EquipmentType[]>(equipList)
     const [filterType, setFilterType] = useState<string>("Все")
     const [filterStatus, setFilterStatus] = useState<string>("Все")
 
     const saveEquipChanges = (item: EquipmentType) => {
-        const equipment = allEquipments.find(equip => equip.id === item.id)
+        const equipment = initialValue.find(equip => equip.id === item.id)
 
         if (equipment) {
             equipment.history = item.history
@@ -23,7 +23,7 @@ const EquipmentsPage = () => {
             equipment.title = item.title
             equipment.ownerId = item.ownerId
             equipment.type = item.type
-            setEquipList([...allEquipments])
+            setEquipList([...initialValue])
         }
         alert(`${item.id}`)
     }

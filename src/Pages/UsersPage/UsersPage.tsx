@@ -8,12 +8,14 @@ import UserStatusFilter from "../../components/Filters/UserStatusFilter.tsx";
 import UsersList from "./UsersList.tsx";
 import {useContext, useState} from "react";
 import {UserContext} from "../../Context/UsersContext.tsx";
+import {EquipmentsContext} from "../../Context/EquipmentsContext";
 
 
 
 
 const UsersPage = () => {
     const allUsers = useContext(UserContext) //получили весь массив пользователей
+    const allEquip = useContext(EquipmentsContext)
     const [users, setUsers] = useState<UsersType[]>(allUsers)
 
 
@@ -52,7 +54,7 @@ const UsersPage = () => {
                 <UserFilter setFilter={handleSetFilterDepartment}/>
                 <UserStatusFilter setFilter={handleSetFilterStatus}/>
             </div>
-            <UsersList filteredUsers={users}/>
+            <UsersList filteredUsers={users} mockEquipments={allEquip}/>
         </div>
     );
 };
