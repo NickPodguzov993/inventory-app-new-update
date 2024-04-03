@@ -11,7 +11,7 @@ type PropsType = {
     filterStatus: string
 }
 const EquipmentsListFilters = ({setEquipmentListStatus, setEquipmentListType, filterType, filterStatus}: PropsType) => {
-    const {allEquipments} = useContext(EquipmentsContext) as IContext
+    const {initialValue} = useContext(EquipmentsContext) as IContext
     function getEquipmentsStatusFilters(allEquipments: EquipmentType[]): string[] {
         const equipmentsStatusFilters: string[] = [];
         allEquipments.forEach((d) => {
@@ -21,7 +21,7 @@ const EquipmentsListFilters = ({setEquipmentListStatus, setEquipmentListType, fi
         });
         return ["Все", ...equipmentsStatusFilters];
     }
-    const equipmentsStatusFilters = getEquipmentsStatusFilters(allEquipments);
+    const equipmentsStatusFilters = getEquipmentsStatusFilters(initialValue);
     function getEquipmentsTypeFilters(allEquipments: EquipmentType[]): string[] {
         const equipmentsStatusFilters: string[] = [];
         allEquipments.forEach((d) => {
@@ -32,7 +32,7 @@ const EquipmentsListFilters = ({setEquipmentListStatus, setEquipmentListType, fi
         return ["Все", ...equipmentsStatusFilters]
     }
 
-    const equipmentsTypesFilters = getEquipmentsTypeFilters(allEquipments);
+    const equipmentsTypesFilters = getEquipmentsTypeFilters(initialValue);
     return (
         // тут локально держать переменную текущих настроек фильтрации
         <div className="fr justify-between w-full">
