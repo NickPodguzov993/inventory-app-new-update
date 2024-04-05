@@ -1,4 +1,4 @@
-import EquipmentSearch from "../Search/EquipmentSearch.tsx";
+
 import {useContext, useMemo, useState} from "react";
 
 import {EquipmentsContext} from "../../Context/EquipmentsContext.tsx";
@@ -6,7 +6,7 @@ import EquipmentFilterType from "../Filters/EquipmentFilterType.tsx";
 import SelectEquipmentCard from "./SelectEquipmentCard.tsx";
 import EditButton from "../Buttons/EditButton.tsx";
 import Search from "../SVG/Search";
-import logo from "../SVG/Logo";
+
 
 type PropsType = {
     close: () => void
@@ -37,7 +37,7 @@ const SelectionOfEquipment = ({close}: PropsType) => {
     const getSearchEquip = useMemo(()=> {
         console.log('1234')
         return initialValue.filter(equip => equip.title.toLowerCase().includes(searchEquip.toLowerCase()))
-    },[setSearchEquip])
+    },[searchEquip])
 
     return (
         <div className="flex flex-col">

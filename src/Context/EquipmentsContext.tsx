@@ -61,8 +61,14 @@ const EquipmentsContextProvider = ({children}: childrenProps) => {
                 note: null,
                 history: null
             },
-            {id: v1(), title: "Xerox", status: "Списано", type: "Принтеры", ownerId: null, note: null, history: null},
-            {id: v1(), title: "МакБук", status: "В другом офисе", type: "Ноутбуки", ownerId: null, note: null, history: null},
+            {id: v1(),
+                title: "Xerox",
+                status: "Списано",
+                type: "Принтеры",
+                ownerId: '',
+                note: null,
+                history: null},
+            {id: v1(), title: "МакБук", status: "В другом офисе", type: "Ноутбуки", ownerId: '', note: null, history: null},
             {
                 id: v1(),
                 title: "Наушники JBL",
@@ -72,7 +78,7 @@ const EquipmentsContextProvider = ({children}: childrenProps) => {
                 note: null,
                 history: null
             },
-            {id: v1(), title: "Ноутбук F+", status: "Резерв", type: "Ноутбуки", ownerId: null, note: null, history: null},
+            {id: v1(), title: "Ноутбук F+", status: "Резерв", type: "Ноутбуки", ownerId: '', note: null, history: null},
             {
                 id: v1(),
                 title: "Монитор MSI",
@@ -83,8 +89,8 @@ const EquipmentsContextProvider = ({children}: childrenProps) => {
                 history: null
 
             },
-            {id: v1(), title: "Xerox", status: "Списано", type: "Принтеры", ownerId: null, note: null, history: null},
-            {id: v1(), title: "МакБук", status: "В другом офисе", type: "Ноутбуки", ownerId: null, note: null, history: null},
+            {id: v1(), title: "Xerox", status: "Списано", type: "Принтеры", ownerId: '', note: null, history: null},
+            {id: v1(), title: "МакБук", status: "В другом офисе", type: "Ноутбуки", ownerId: '', note: null, history: null},
             {
                 id: v1(),
                 title: "Наушники JBL",
@@ -94,7 +100,7 @@ const EquipmentsContextProvider = ({children}: childrenProps) => {
                 note: null,
                 history: null
             },
-            {id: v1(), title: "Ноутбук F+", status: "Резерв", type: "Ноутбуки", ownerId: null, note: null, history: null},
+            {id: v1(), title: "Ноутбук F+", status: "Резерв", type: "Ноутбуки", ownerId: '', note: null, history: null},
             {
                 id: v1(),
                 title: "Принтер НР",
@@ -104,8 +110,8 @@ const EquipmentsContextProvider = ({children}: childrenProps) => {
                 note: null,
                 history: null
             },
-            {id: v1(), title: "Xerox", status: "Списано", type: "Принтеры", ownerId: null, note: null, history: null},
-            {id: v1(), title: "МакБук", status: "В другом офисе", type: "Ноутбуки", ownerId: null, note: null, history: null},
+            {id: v1(), title: "Xerox", status: "Списано", type: "Принтеры", ownerId: '', note: null, history: null},
+            {id: v1(), title: "МакБук", status: "В другом офисе", type: "Ноутбуки", ownerId: '', note: null, history: null},
             {
                 id: v1(),
                 title: "Наушники JBL",
@@ -115,7 +121,7 @@ const EquipmentsContextProvider = ({children}: childrenProps) => {
                 note: null,
                 history: null
             },
-            {id: v1(), title: "Ноутбук F+", status: "Резерв", type: "Ноутбуки", ownerId: null, note: null, history: null},
+            {id: v1(), title: "Ноутбук F+", status: "Резерв", type: "Ноутбуки", ownerId: '', note: null, history: null},
             {
                 id: v1(),
                 title: "Клавиатура механическая",
@@ -125,8 +131,8 @@ const EquipmentsContextProvider = ({children}: childrenProps) => {
                 note: null,
                 history: null
             },
-            {id: v1(), title: "Xerox", status: "Списано", type: "Принтеры", ownerId: null, note: null, history: null},
-            {id: v1(), title: "МакБук", status: "В другом офисе", type: "Ноутбуки", ownerId: null, note: null, history: null},
+            {id: v1(), title: "Xerox", status: "Списано", type: "Принтеры", ownerId: '', note: null, history: null},
+            {id: v1(), title: "МакБук", status: "В другом офисе", type: "Ноутбуки", ownerId: '', note: null, history: null},
             {
                 id: v1(),
                 title: "Наушники JBL",
@@ -136,7 +142,7 @@ const EquipmentsContextProvider = ({children}: childrenProps) => {
                 note: null,
                 history: null
             },
-            {id: v1(), title: "Наушники F+", status: "Резерв", type: "Аксессуары", ownerId: null, note: null, history: null},
+            {id: v1(), title: "Наушники F+", status: "Резерв", type: "Аксессуары", ownerId: '', note: null, history: null},
             {
                 id: v1(),
                 title: "Системный блок ПК-2",
@@ -146,7 +152,7 @@ const EquipmentsContextProvider = ({children}: childrenProps) => {
                 note: null,
                 history: null
             },
-            {id: v1(), title: "Xerox", status: "Списано", type: "Принтеры", ownerId: null, note: null, history: null},
+            {id: v1(), title: "Xerox", status: "Списано", type: "Принтеры", ownerId: '', note: null, history: null},
             {id: v1(), title: "МакБук", status: "В другом офисе", type: "Ноутбуки", ownerId: null, note: null, history: null},
             {
                 id: v1(),
@@ -157,10 +163,10 @@ const EquipmentsContextProvider = ({children}: childrenProps) => {
                 note: null,
                 history: null
             },
-            {id: v1(), title: "Колонка F+", status: "Резерв", type: "Аксессуары", ownerId: null, note: null, history: null},
-            {id: v1(), title: "LG", status: "Требует ремонта", type: "Мониторы", ownerId: null, note: null, history: null},
-            {id: v1(), title: "Xerox", status: "Списано", type: "Принтеры", ownerId: null, note: null, history: null},
-            {id: v1(), title: "МакБук", status: "В другом офисе", type: "Ноутбуки", ownerId: null, note: null, history: null},
+            {id: v1(), title: "Колонка F+", status: "Резерв", type: "Аксессуары", ownerId: '', note: null, history: null},
+            {id: v1(), title: "LG", status: "Требует ремонта", type: "Мониторы", ownerId: '', note: null, history: null},
+            {id: v1(), title: "Xerox", status: "Списано", type: "Принтеры", ownerId: '', note: null, history: null},
+            {id: v1(), title: "МакБук", status: "В другом офисе", type: "Ноутбуки", ownerId: '', note: null, history: null},
             {
                 id: v1(),
                 title: "Принтер LG",
@@ -181,7 +187,7 @@ const EquipmentsContextProvider = ({children}: childrenProps) => {
             },
             {
                 id: v1(),
-                title: "Наушники большие",
+                title: "Наушники большиеtt",
                 status: "Списано",
                 type: "Аксессуары",
                 ownerId: '',
@@ -203,10 +209,7 @@ const EquipmentsContextProvider = ({children}: childrenProps) => {
         }))
     }
 
-    const handleRemoveEquip = () => {
-        // return initialValue.filter(f=>f.id !== id2)
-        console.log('12334')
-    }
+    const handleRemoveEquip = (id) => setInitialValue(initialValue.map(item => item.id === id ? {...item, ownerId: '' } : item))
 
     return <EquipmentsContext.Provider value={{
         initialValue: initialValue,

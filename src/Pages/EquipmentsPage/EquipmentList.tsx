@@ -1,16 +1,19 @@
 // список всего отфильтрованного оборцдования оборудования
-import {useState} from "react";
+import {useContext, useState} from "react";
 import {EquipmentType} from "../../App.tsx";
 import ArrowToRight from "../../components/SVG/ArrowToRight.tsx";
 import EquipmentStatusCard from "../../components/ItemCards/EquipmentStatusCard.tsx";
 import EquipmentTypeCard from "../../components/ItemCards/EquipmentTypeCard.tsx";
 import SelectedEquipmentCard from "../../components/Cards/SelectedEquipmentCard.tsx";
+import {EquipmentsContext, IContext} from "../../Context/EquipmentsContext";
 
 type PropsType = {
     equipments: EquipmentType[];
     saveEquipChanges: (equip: EquipmentType) => void;
 }
 const EquipmentList = ({equipments, saveEquipChanges}: PropsType) => {
+
+
     const [selectedEquipment, setSelectedEquipment] = useState<EquipmentType | null>(null);
     return (
         <div className="fr flex-wrap gap-4">

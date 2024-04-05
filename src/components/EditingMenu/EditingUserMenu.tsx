@@ -108,14 +108,14 @@ const EditingUserMenu = ({user, close, ownership}: PropsType) => {
                             </div>
 
                         </div>
-                        {ownership.map(e => (
+                        {ownership.map(item => (
                             <div
                                 className="user_equipments"
-                                key={e.id}>
-                                <span className="text-neutral-800 text-xs font-medium font-['Roboto']">{e.title}</span>
+                                key={item.id}>
+                                <span className="text-neutral-800 text-xs font-medium font-['Roboto']">{item.title}</span>
                                 <span
-                                    className="text-blue-600 text-xs font-medium font-['Roboto Condensed']">{e.id}</span>
-                                <div onClick={handleRemoveEquip}><DeleteEquipment/></div>
+                                    className="text-blue-600 text-xs font-medium font-['Roboto Condensed']">{item.id}</span>
+                                <div onClick={() => handleRemoveEquip(item.id)}><DeleteEquipment/></div>
                             </div>
                         ))}
                     </div>
